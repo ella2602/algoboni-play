@@ -1,22 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="utf-8" />
-    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>오늘도 진상</title>
-    <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
+
+    <!--
+      광고 심의 검수 전이다 (PRD 2-9). 검색에 잡히면 곤란하므로 색인을 막는다.
+      robots.txt 로는 안 된다 — 크롤러는 도메인 루트의 robots.txt 만 읽는데
+      github.io 루트는 우리 것이 아니다. 그래서 meta 로 박는다.
+      **정식 공개 시점에 이 두 줄을 지운다.**
+    -->
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- SNS 공유가 핵심 경로다 (PRD 3-1). 링크를 붙였을 때 카드가 뜨게 한다. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="오늘도 진상" />
+    <meta
+      property="og:description"
+      content="당신은 오늘부터 알고케어 영양 상담원입니다. 손님 말을 믿으면 틀립니다."
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <!-- react-native-web 권장 리셋. Expo 기본 템플릿에서 그대로 가져왔다. -->
     <style id="expo-reset">
-      /* These styles make the body full-height */
       html,
       body {
         height: 100%;
       }
-      /* These styles disable body scrolling if you are using <ScrollView> */
       body {
         overflow: hidden;
       }
-      /* These styles make the root element full-height */
       #root {
         display: flex;
         height: 100%;
@@ -26,11 +41,7 @@
   <link rel="icon" href="/algoboni-play/favicon.ico"/></head>
 
   <body>
-    <!-- Use static rendering with Expo Router to support running without JavaScript. -->
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <!-- The root element for your Expo app. -->
+    <noscript>이 게임을 하려면 자바스크립트를 켜야 합니다.</noscript>
     <div id="root"></div>
   <script src="/algoboni-play/_expo/static/js/web/index-3c724b75775a64a3680a63a22de177ef.js" defer></script>
 </body>
